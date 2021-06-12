@@ -10,4 +10,4 @@ Criando projetos .NET Core segundo a Clean Architecture
 - CleanArchitecture.Infra.IoC: Dependência com op rpjrto -> Domain, Apllication, Infea.Data
 - CleanArchitecture.WebUI: Dependência com o projeto -> Infra.IoC
 
-[![Arquitetura do Projeto](https://raw.githubusercontent.com/wandealves/CleanArchitecture/3caf8212e61955e10d310f11ee76cfbf4f464d73/assets/ArquiteturaProjeto.svg "Arquitetura do Projeto")](https://raw.githubusercontent.com/wandealves/CleanArchitecture/3caf8212e61955e10d310f11ee76cfbf4f464d73/assets/ArquiteturaProjeto.svg "Arquitetura do Projeto")
+![Arquitetura do projeto](https://raw.githubusercontent.com/wandealves/CleanArchitecture/0e4ef12f8754d8ac98201200d92b263d2eddadc2/assets/ArquiteturaProjeto.svg "Arquitetura do projeto")
