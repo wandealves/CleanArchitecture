@@ -104,6 +104,6 @@ dist
 .tern-port
 
 # dotnet
-
+.vscode
 src/**/obj
 src/**/bin
