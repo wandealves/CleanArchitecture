@@ -3,7 +3,7 @@ using CleanArchitecture.Domain.Validation;
 
 namespace CleanArchitecture.Domain.Entities
 {
-  public sealed class Category
+  public sealed class Category : Entity
   {
     public Category(string name)
     {
@@ -17,9 +17,13 @@ namespace CleanArchitecture.Domain.Entities
       ValidateDomain(name);
     }
 
-    public int Id { get; private set; }
     public string Name { get; private set; }
     public ICollection<Product> Products { get; private set; }
+
+    public void Update(string name)
+    {
+      ValidateDomain(name);
+    }
 
     private void ValidateDomain(string name)
     {
