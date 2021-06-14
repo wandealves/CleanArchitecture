@@ -11,7 +11,7 @@ namespace CleanArchitecture.Domain.Entities
 
     public Product(int id, string name, string description, decimal price, int stock, string image)
     {
-      DomainExceptionValidation.When(id < 0, "Inalid Id value");
+      DomainExceptionValidation.When(id < 0, "Invalid Id value");
       Id = id;
       ValidationDomain(name, description, price, stock, image);
     }
@@ -32,7 +32,7 @@ namespace CleanArchitecture.Domain.Entities
 
     private void ValidationDomain(string name, string description, decimal price, int stock, string image)
     {
-      DomainExceptionValidation.When(string.IsNullOrEmpty(name), "Inalid name. Name is required");
+      DomainExceptionValidation.When(string.IsNullOrEmpty(name), "Invalid name. Name is required");
       DomainExceptionValidation.When(name.Length < 3, "Invalid name, too short, minimum 3 characteres");
 
       DomainExceptionValidation.When(string.IsNullOrEmpty(description), "Inalid description. Description is required");
