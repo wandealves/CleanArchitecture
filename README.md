@@ -11,3 +11,21 @@ Criando projetos .NET Core segundo a Clean Architecture
 - CleanArchitecture.WebUI: Dependência com o projeto -> Infra.IoC
 
 ![Arquitetura do projeto](https://raw.githubusercontent.com/wandealves/CleanArchitecture/0e4ef12f8754d8ac98201200d92b263d2eddadc2/assets/ArquiteturaProjeto.svg "Arquitetura do projeto")
+
+## 2. Migrations
+
+Visual Studio
+
+Add-migration <nome>
+update-database
+remove-migration
+get-migration
+
+Net CLI
+
+dotnet ef migrations add <nome>
+dotnet ef database
+dotnet ef migrations remove
+dotnet ef migrations list
+
+dotnet tool install --global dotnet-ef
