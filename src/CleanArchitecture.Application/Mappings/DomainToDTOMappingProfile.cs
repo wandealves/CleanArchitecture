@@ -4,7 +4,7 @@ using CleanArchitecture.Domain.Entities;
 
 namespace CleanArchitecture.Application.Mappings
 {
-    class DomainToDTOMappingProfile: Profile
+   public class DomainToDTOMappingProfile: Profile
     {
         public DomainToDTOMappingProfile() 
         {

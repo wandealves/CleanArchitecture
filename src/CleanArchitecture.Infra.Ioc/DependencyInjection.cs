@@ -1,4 +1,5 @@
 ﻿using CleanArchitecture.Application.Interfaces;
+using CleanArchitecture.Application.Mappings;
 using CleanArchitecture.Application.Services;
 using CleanArchitecture.Domain.Interfaces;
 using CleanArchitecture.Infra.Data.Context;
@@ -21,6 +22,8 @@ namespace CleanArchitecture.Infra.Ioc
 
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IProductService, ProductService>();
+
+            services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
 
             return services;
         }
