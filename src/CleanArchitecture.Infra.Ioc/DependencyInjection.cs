@@ -1,4 +1,6 @@
-﻿using CleanArchitecture.Domain.Interfaces;
+﻿using CleanArchitecture.Application.Interfaces;
+using CleanArchitecture.Application.Services;
+using CleanArchitecture.Domain.Interfaces;
 using CleanArchitecture.Infra.Data.Context;
 using CleanArchitecture.Infra.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +18,9 @@ namespace CleanArchitecture.Infra.Ioc
 
             services.AddScoped<ICategoryRepository, CatetgoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
+
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IProductService, ProductService>();
 
             return services;
         }
