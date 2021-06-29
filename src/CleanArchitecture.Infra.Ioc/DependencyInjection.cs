@@ -4,9 +4,11 @@ using CleanArchitecture.Application.Services;
 using CleanArchitecture.Domain.Interfaces;
 using CleanArchitecture.Infra.Data.Context;
 using CleanArchitecture.Infra.Data.Repositories;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace CleanArchitecture.Infra.Ioc
 {
@@ -24,6 +26,10 @@ namespace CleanArchitecture.Infra.Ioc
             services.AddScoped<IProductService, ProductService>();
 
             services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
+            services.AddAutoMapper(typeof(DTOToCommandMappingProfile));
+
+            var myHandlers = AppDomain.CurrentDomain.Load("CleanArchitecture.Application");
+            services.AddMediatR(myHandlers);
 
             return services;
         }
