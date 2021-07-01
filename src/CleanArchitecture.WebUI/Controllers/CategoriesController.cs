@@ -1,6 +1,7 @@
 ﻿using CleanArchitecture.Application.DTOs;
 using CleanArchitecture.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace CleanArchitecture.WebUI.Controllers
@@ -36,6 +37,36 @@ namespace CleanArchitecture.WebUI.Controllers
             }
 
             return View(category);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var categoryDto = await _categoryService.GetById(id);
+
+            if (categoryDto == null) return NotFound();
+
+            return View(categoryDto);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(CategoryDTO categoryDto) 
+        {
+            if (ModelState.IsValid) 
+            {
+                try
+                {
+                    await _categoryService.Update(categoryDto);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(categoryDto);
         }
     }
 }
