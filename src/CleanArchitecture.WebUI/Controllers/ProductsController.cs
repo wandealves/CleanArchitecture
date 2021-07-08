@@ -1,5 +1,6 @@
 ﻿using CleanArchitecture.Application.DTOs;
 using CleanArchitecture.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -47,7 +48,7 @@ namespace CleanArchitecture.WebUI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edit(int? id) 
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null) return NotFound();
             var productDto = await _productService.GetById(id);
@@ -62,9 +63,9 @@ namespace CleanArchitecture.WebUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(ProductDTO productDto) 
+        public async Task<IActionResult> Edit(ProductDTO productDto)
         {
-            if (ModelState.IsValid) 
+            if (ModelState.IsValid)
             {
                 await _productService.Update(productDto);
                 return RedirectToAction(nameof(Index));
@@ -73,6 +74,7 @@ namespace CleanArchitecture.WebUI.Controllers
             return View(productDto);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> Delete(int? id)
         {
@@ -92,7 +94,7 @@ namespace CleanArchitecture.WebUI.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> Details(int? id) 
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null) return NotFound();
             var productDto = await _productService.GetById(id);
